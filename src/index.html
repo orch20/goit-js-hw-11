@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixabay search</title>
+  </head>
+  <body>
+    <div class="search-container">
+      <a
+        href="https://pixabay.com/"
+        class="pixabay-link"
+        target="_blank"
+        rel="noopener nofollow"
+      >
+        <img
+          src="https://pixabay.com/static/img/logo.png"
+          alt="Pixabay"
+          class="pixabay-logo-image"
+          width="200px"
+        />
+      </a>
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div class="gallery">
+        <!-- Картки зображень -->
+      </div>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

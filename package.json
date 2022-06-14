@@ -1,0 +1,33 @@
+{
+  "name": "parcel-project-template",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://orch20.github.io/goit-js-hw-11/",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /goit-js-hw-11//"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com//github.com/orch20/goit-js-hw-10.git"
+  },
+  "keywords": [],
+  "author": "Orest Chornyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orch20/goit-js-hw-10/issues"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.6.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}
