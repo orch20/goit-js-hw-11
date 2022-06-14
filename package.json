@@ -9,17 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com//github.com/orch20/goit-js-hw-10.git"
+    "url": "git+https://github.com//github.com/orch20/goit-js-hw-11.git"
   },
   "keywords": [],
   "author": "Orest Chornyi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/orch20/goit-js-hw-10/issues"
+    "url": "https://github.com/orch20/goit-js-hw-11/issues"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.5"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
