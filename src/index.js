@@ -9,17 +9,23 @@ const refs = {
 };
 
 refs.form.addEventListener('submit', onSubmit);
+let query = ''
 
 function onSubmit(e) {
   e.preventDefault();
+  refs.gallery.innerHTML = ''
   console.log(e.currentTarget.searchQuery.value);
-  search(e.currentTarget.searchQuery.value);
+
+  query = e.currentTarget.searchQuery.value
+  search(query)
+  // search(e.currentTarget.searchQuery.value);
 }
 
 // fetch('https://pixabay.com/api/?key=28032736-ad36f6ce87d03da58a29c5b67')
 //   .then(respond => respond.json())
 //   .then(console.log);
 function search(query) {
+
   axios
     .get(
       `https://pixabay.com/api/?key=28032736-ad36f6ce87d03da58a29c5b67&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`
@@ -37,7 +43,7 @@ function foundData(data) {
     );
   } else {
     const newData = data.hits.map(data => renderCards(data)));
-    
+    console.log(newData);
   }
 }
 
