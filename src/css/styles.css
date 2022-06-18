@@ -100,6 +100,9 @@ button:active {
 } */
 
 .photo-card {
+  width: 290px;
+  max-height: 320px;
+  overflow: hidden;
   flex-basis: calc(100% / 4 - 20px);
   margin-right: 20px;
   margin-bottom: 20px;
@@ -107,7 +110,8 @@ button:active {
   background: var(--white-font-color);
   border: 1px solid #eeeeee;
   border-radius: 5px;
-  transition-property: box-shadow;
+  transform: scale(1);
+  transition-property: box-shadow, transform;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -116,15 +120,31 @@ button:active {
 .photo-card:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transform: scale(1.02);
+}
+.photo-card_image {
+  display: block;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  /* z-index: -1; */
+}
+
+.photo-card__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .info {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
-info-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.info-item {
+  text-align: center;
+}
+
+.load-more {
+  margin: 10px auto;
 }
