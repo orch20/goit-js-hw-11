@@ -9,9 +9,8 @@ export default class PixabayApiService {
   //     const API = {
   //   key: '28032736-ad36f6ce87d03da58a29c5b67',
   // };
-  search() {
-    console.log(this);
-    return axios
+  async search() {
+    return await axios
       .get(
         `https://pixabay.com/api/?key=28032736-ad36f6ce87d03da58a29c5b67&q=${this.query}&page=${this.page}&per_page=40&image_type=photo&orientation=horizontal&safesearch=true`
       )

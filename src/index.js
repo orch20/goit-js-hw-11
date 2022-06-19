@@ -1,15 +1,15 @@
 import './css/styles.css';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import ApiService from './api-service';
 import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const apiService = new ApiService();
-// let gallery = new SimpleLightbox('.gallery a');
-
-new SimpleLightbox('.gallery a', {
+const lightBox = new SimpleLightbox('.gallery div a', {
   captionDelay: 250,
+  captionsData: 'alt',
 });
+
+const apiService = new ApiService();
 
 const refs = {
   form: document.querySelector('#search-form'),
@@ -42,14 +42,12 @@ function onLoadMore(e) {
 }
 
 function foundData(data) {
-  console.log(data.totalHits);
   if (data.totalHits === 0) {
     refs.buttonLoadMore.style.display = 'none';
     Notify.warning(
       'Sorry, there are no images matching your search query. Please try again.'
     );
   } else {
-    console.log(data.totalHits);
     Notify.success(`"Hooray! We found ${data.totalHits} images."`);
     const newData = data.hits.map(data => renderCards(data));
     if (data.totalHits < apiService.page * 40) {
@@ -96,6 +94,7 @@ function renderCards(data) {
   </div>
 </div>`;
   refs.gallery.insertAdjacentHTML('beforeend', card);
+  lightBox.refresh();
 }
 
 function clearPage() {
