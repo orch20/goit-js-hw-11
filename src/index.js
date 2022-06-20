@@ -26,6 +26,7 @@ refs.buttonLoadMore.addEventListener('click', onLoadMore);
 
 function onSubmit(e) {
   e.preventDefault();
+  refs.buttonLoadMore.style.display = 'none';
   apiService.query = e.currentTarget.searchQuery.value;
   if (apiService.query === '') {
     Notify.warning('Write down your query please.');
@@ -34,7 +35,6 @@ function onSubmit(e) {
   clearPage();
   apiService.resetPage();
   apiService.search().then(foundData);
-  refs.buttonLoadMore.style.display = 'block';
 }
 
 function onLoadMore(e) {
@@ -47,15 +47,18 @@ function foundData(data) {
     Notify.warning(
       'Sorry, there are no images matching your search query. Please try again.'
     );
-  } else {
+  }
+  if (apiService.page === 2) {
     Notify.success(`"Hooray! We found ${data.totalHits} images."`);
-    const newData = data.hits.map(data => renderCards(data));
-    if (data.totalHits < apiService.page * 40) {
-      refs.buttonLoadMore.style.display = 'none';
-      Notify.warning(
-        "We're sorry, but you've reached the end of search results."
-      );
-    }
+  }
+
+  const newData = data.hits.map(data => renderCards(data));
+
+  if (data.totalHits < (apiService.page - 1) * 40) {
+    refs.buttonLoadMore.style.display = 'none';
+    Notify.warning(
+      "We're sorry, but you've reached the end of search results."
+    );
   }
 }
 
@@ -94,6 +97,7 @@ function renderCards(data) {
   </div>
 </div>`;
   refs.gallery.insertAdjacentHTML('beforeend', card);
+  refs.buttonLoadMore.style.display = 'block';
   lightBox.refresh();
 }
 
